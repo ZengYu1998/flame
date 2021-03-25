@@ -18,8 +18,25 @@
 				</view>
 			</u-navbar>
 		<view class="content">
-			<p>搜索1</p>
-			
+			<view class="list hot" v-if="hotList.length > 0">
+				<view class="head">
+					<view>热搜</view>
+				</view>
+				<view class="list_ls">
+					<view class="item"  v-for="(item,index) in hotList" :key="index" >
+						<font>{{index+1}} </font>
+					 {{item}}
+					</view>
+				</view>
+			</view>
+			<view class="list hot" v-if="hotList.length > 0">
+				<view class="head">
+					<view>搜索历史</view>
+				</view>
+				<view class="list_ls">
+					<view class="item" :class="'square round-fill'" v-for="(item,index) in hotList" :key="index" >{{item}}</view>
+				</view>
+			</view>
 		</view>
 	</view>
 	
@@ -30,7 +47,8 @@
 	export default {
 		data() {
 			return {
-				keyword: ''
+				keyword: '',
+				hotList:['1','2']
 			}
 		},
 		onLoad() {
@@ -91,5 +109,14 @@
 	
 	.map-wrap-text {
 		padding: 0 6rpx;
+	}
+	.list{padding: 0 20rpx;
+		.head{display: flex;  justify-content: space-between; color: #1A1A1A;font-size: 30rpx;margin-bottom: 28rpx; margin-top: 20rpx;font-weight:bold;}
+		.list_ls .item{display: inline-block;padding: 8rpx 24rpx;margin:0rpx 16rpx 22rpx 0rpx;font-size: 28rpx;color: #1A1A1A;
+			&.round{border: 2rpx solid #EFEFEF;border-radius: 24rpx;font-size: 24rpx;color: #919191;}
+			&.round-fill{background-color:#EFEFEF;border: 2rpx solid #EFEFEF;border-radius: 24rpx;font-size: 24rpx;color: #919191;}
+			&.square{border: 2rpx solid #EFEFEF;border-radius: 8rpx;font-size: 24rpx;color: #919191;}
+			&.square-fill{background-color:#EFEFEF; border-radius: 8rpx;font-size: 24rpx;color: #919191;}
+		}
 	}
 </style>
