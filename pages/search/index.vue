@@ -18,7 +18,7 @@
 				</view>
 			</u-navbar>
 		<view class="content">
-			<p>搜索</p>
+			<p>搜索1</p>
 			
 		</view>
 	</view>
